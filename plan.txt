@@ -40,5 +40,9 @@ Reddit
 
 
 
-
 Issues:
+
+
+
+MVP:
+Ability to see recent posts from the social media above sorted by time.
