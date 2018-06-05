@@ -3,5 +3,46 @@ Requirements
 (n) = not done
 (f) = fixed [for issues]
 
+Models:
+Facebook
+    Post:
+        Post
+        Likes
+        Dislikes
+        Comments
+        Post Time
+
+
+Instagram
+    Photo:
+        Photo
+        Comments
+        Post Time
+
+
+Twitter
+    Tweet:
+        Text
+        Retweets
+        Poster
+        Post Time
+
+Reddit
+    Subreddits:
+        Subscribed Subreddits
+
+    Post:
+        Name
+        Explanation
+        Upvotes
+        Subreddit - Foreign Key
+        Post Time
+
+
 
 Issues:
+
+
+
+MVP:
+Ability to see recent posts from the social media above sorted by time.

@@ -87,9 +87,10 @@ WSGI_APPLICATION = 'Workspace.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cras',
-        'USER': 'razma',
-        'PASSWORD': 'ramza123',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+
     }
 }
 
