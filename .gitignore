@@ -92,3 +92,11 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+virtual/
+*.pyc
+__pycache__/
+.vscode/
+
+.env
+/settings.py
