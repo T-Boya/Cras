@@ -1,0 +1,7 @@
+Requirements
+(y) = done
+(n) = not done
+(f) = fixed [for issues]
+
+
+Issues:
