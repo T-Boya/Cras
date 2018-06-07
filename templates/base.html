@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        {% block title %}
+        <title>Cras</title>
+        {% endblock %}
+
+        {% block icon %}
+        <link rel="icon" href="{% static 'IMG/ICNS/icn1.png' %}">
+        {% endblock %}
+
+        {% block css_main %}
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}"> -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {% endblock %}
+
+        {% block stylesheet %}
+        {% endblock %}
+    </head>
+    <body>
+    {% block navbar %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% load staticfiles %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="{% static 'JS/name.js' %}"></script> -->
+    </body>
+</html>

@@ -21,11 +21,31 @@ Instagram
 
 
 Twitter
+    Last Tweet ID:
+        ID Number
+
     Tweet:
         Text
         Retweets
         Poster
         Post Time
+
+Consumer Key (API Key)	2rdBgKQUKjykzYfvWKxubShtX
+Consumer Secret (API Secret)	GtT7jJMS4JqklqmldjNfY4KOjr3AyWgQAhrevakcMxMwUTdwWn
+Access Level	Read and write (modify app permissions)
+Owner	rvm7a
+Owner ID	2717767805
+
+Access level	Read and write (modify app permissions)
+Consumer Key (API Key)	2rdBgKQUKjykzYfvWKxubShtX (manage keys and access tokens)
+Callback URL	None
+Callback URL Locked	Yes
+Sign in with Twitter	Yes
+App-only authentication	https://api.twitter.com/oauth2/token
+Request token URL	https://api.twitter.com/oauth/request_token
+Authorize URL	https://api.twitter.com/oauth/authorize
+Access token URL	https://api.twitter.com/oauth/access_token
+
 
 Reddit
     Subreddits:
