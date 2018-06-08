@@ -31,3 +31,23 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     box-shadow: none;
     outline: none;
 }
+
+a img {
+    display: none;
+}
+
+a:hover img{
+    display: block;
+}
+
+/* a:hover {
+    position: relative;
+} */
+
+/* a:hover:after {
+    content: url(../static/IMG/ICNS/icn4.png);
+    display: block;
+    position: absolute;
+    left: 123px; change this value to one that suits you
+    top: 56px; change this value to one that suits you
+} */
