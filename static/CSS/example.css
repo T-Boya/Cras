@@ -1,0 +1,33 @@
+details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+}
+  
+@keyframes sweep {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+}
+
+summary::-webkit-details-marker {
+    font-size:0px;
+    display: none;
+}
+
+details {
+    font-size: 2vh;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+summary {
+    font-size: 3vh;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
