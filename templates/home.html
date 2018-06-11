@@ -7,6 +7,19 @@
 <a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
 <a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a>
 <a href="{% url 'logout' %}">logout</a>
+{% if followernum == 1 %}
+1 follower
+{% else %}
+{{ followernum }} followers
+{% endif %}
+<br>
+{% if statuses %}
+    {% for status in statuses %}
+        {{ status.user.name }}, {{ status.text }} {{ status.age }}
+    {% endfor %}
+{% else %}
+You haven't posted anything!
+{% endif %}
 {% else %}
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>

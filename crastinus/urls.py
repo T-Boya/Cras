@@ -18,5 +18,5 @@ from crastinus import views
 
 urlpatterns = [
     # path('/', views.index, name='home'),
-    path('', views.Home.as_view(), name='home'),
+    path('', views.home, name='home'),
 ]
