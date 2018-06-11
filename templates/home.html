@@ -3,6 +3,13 @@
 <h1>Django Allauth Tutorial</h1>
 {% if user.is_authenticated %}
 <p>Welcome {{ user.username }} !!!</p>
+<a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
+<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
+<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a>
+<a href="{% url 'logout' %}">logout</a>
 {% else %}
-<a href="{% provider_login_url 'twitter' %}">Sign Up</a>
+<!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
+<a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
+<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
+<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a>
 {% endif %}
