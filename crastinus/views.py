@@ -2,5 +2,5 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpRequest, HttpResponseRedirect, HttpResponse
 
 # Create your views here.
-def index(request):
-    return render( request, 'index.html')
+def index2(request):
+    return render( request, 'index2.html')
