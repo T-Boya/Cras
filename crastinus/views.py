@@ -76,12 +76,14 @@ def home(request):
     providers = [a.capitalize() for a in usedproviders]
     print(providers)
     notifications = []
+
     if 'Twitter' in providers:
         print('Twitter registered')
         print('displaying...')
         Twitter = True
         # TWITTER LOGIC
         followers = twitterapi.GetFollowers()
+        didi = followers[0]
         print([f.name for f in followers])
         followernum = len(followers)
         statuses = twitterapi.GetHomeTimeline()
@@ -153,7 +155,10 @@ def home(request):
     notifications.sort(key=lambda x: x.rage, reverse=True)
     print('notifications:')
     print(notifications)
-
+    print(didi.__dict__)
+    print(didi.followers_count) #TWITTER FOLLOWERS COUNT
+    print(didi.screen_name) #TWITTER SCREEN NAME
+    print(didi.friends_count) #TWITTER FOLLOWING COUNT
     # print (objjj.__dict__)
     return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications})
 
