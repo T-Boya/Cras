@@ -3,10 +3,10 @@
 <h1>Django Allauth Tutorial</h1>
 {% if user.is_authenticated %}
 <p>Welcome {{ user.username }} !!!</p>
-<a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
-<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
-<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a>
-<a href="{% url 'logout' %}">logout</a>
+<a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a><br>
+<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a><br>
+<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a><br>
+<a href="{% url 'logout' %}">logout</a><br>
 {% if followernum == 1 %}
 1 follower
 {% else %}
@@ -15,7 +15,7 @@
 <br>
 {% if statuses %}
     {% for status in statuses %}
-        {{ status.user.name }}, {{ status.text }} {{ status.age }}
+        {{ status.user.name }}, {{ status.text }} {{ status.age }}<br>
     {% endfor %}
 {% else %}
 You haven't posted anything!
