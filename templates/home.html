@@ -21,10 +21,10 @@
 You haven't posted anything!
 {% endif %}
 {% else %}
-{% if facedata != 0 %}
-{{ facedata }}
-{% else %}
+{% if facedata == 0 %}
 you've made a mistake
+{% else %}
+{{ facedata }}
 {% endif %}
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
