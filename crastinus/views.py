@@ -175,7 +175,7 @@ def home(request):
     # print(dudu.__dict__)
     # print (objjj.__dict__)
     print(allproviders[0].uid)
-    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facedata' : facedata, 'facetoken' : facetoken})
+    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facedata' : facedata,})
 
 def user_logout(request):
     logout(request)
