@@ -153,7 +153,7 @@ def home(request):
         Facebook = True
         faceuid = allproviders[usedproviders.index('facebook')].uid
         faceresponse = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
-        facedata = json.loads(faceresponse)
+        facedata = faceresponse
 
     else:
         print('Facebook registration failed')
