@@ -149,7 +149,7 @@ def home(request):
         print('Facebook registered')
         print('displaying...')
         Facebook = True
-        faceobject = filter(lambda x: x.provider == 'facebook', allproviders)
+        faceobject = allproviders.filter(provider=='facebook')
         faceuid = faceobject.uid
         r = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
         facebook = True
