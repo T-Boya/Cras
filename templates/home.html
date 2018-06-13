@@ -21,6 +21,9 @@
 You haven't posted anything!
 {% endif %}
 {% else %}
+{% if facebook == True %}
+success
+{% endif %}
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
 <a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>

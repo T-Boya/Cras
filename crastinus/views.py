@@ -149,6 +149,11 @@ def home(request):
         print('Facebook registered')
         print('displaying...')
         Facebook = True
+        faceobject = filter(lambda x: x.provider == facebook, allproviders)
+        faceuid = faceobject.uid
+        r = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
+        facebook = True
+
     else:
         print('Facebook registration failed')
         print('cannot be displayed')
@@ -164,7 +169,8 @@ def home(request):
     # print(didi.friends_count) #TWITTER FOLLOWING COUNT
     # print(dudu.__dict__)
     # print (objjj.__dict__)
-    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications})
+    print(allproviders[0].uid)
+    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facebook' : facebook})
 
 def user_logout(request):
     logout(request)
