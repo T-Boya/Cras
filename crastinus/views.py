@@ -89,8 +89,9 @@ def home(request):
         statuses = twitterapi.GetHomeTimeline()
         for status in statuses:
             status.provider = twitter
-            status.poster = status.user.name
+            status.poster = status.user.screen_name
             status.rage = status.created_at_in_seconds
+        dudu = statuses[0]
         print(statuses)
         notifications.extend(statuses)
         
@@ -155,10 +156,11 @@ def home(request):
     notifications.sort(key=lambda x: x.rage, reverse=True)
     print('notifications:')
     print(notifications)
-    print(didi.__dict__)
-    print(didi.followers_count) #TWITTER FOLLOWERS COUNT
-    print(didi.screen_name) #TWITTER SCREEN NAME
-    print(didi.friends_count) #TWITTER FOLLOWING COUNT
+    # print(didi.__dict__)
+    # print(didi.followers_count) #TWITTER FOLLOWERS COUNT
+    # print(didi.screen_name) #TWITTER SCREEN NAME
+    # print(didi.friends_count) #TWITTER FOLLOWING COUNT
+    # print(dudu.__dict__)
     # print (objjj.__dict__)
     return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications})
 
