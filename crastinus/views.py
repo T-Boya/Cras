@@ -156,8 +156,7 @@ def home(request):
         faceuid = allproviders[usedproviders.index('facebook')].uid
         facetokenraw = SocialToken.objects.filter(account__user=user, account__provider='facebook')
         facetoken = facetokenraw.first()
-        faceresponse = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
-        facedata = faceresponse
+        facedata = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
 
     else:
         print('Facebook registration failed')
