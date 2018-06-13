@@ -78,6 +78,7 @@ def home(request):
     notifications = []
     # DEFINING TWITTER VARIABLE
     followernum = 0
+    facedata = 0
 
     if 'Twitter' in providers:
         print('Twitter registered')
@@ -149,10 +150,9 @@ def home(request):
         print('Facebook registered')
         print('displaying...')
         Facebook = True
-        faceobject = allproviders.filter(provider=='facebook')
-        faceuid = faceobject.uid
-        r = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
-        facebook = True
+        faceuid = allproviders[usedproviders.index('facebook')].uid
+        faceresponse = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
+        facedata = json.loads(faceresponse.text)
 
     else:
         print('Facebook registration failed')
@@ -170,7 +170,7 @@ def home(request):
     # print(dudu.__dict__)
     # print (objjj.__dict__)
     print(allproviders[0].uid)
-    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facebook' : facebook})
+    return render(request, 'home.html', {'twitter' : Twitter, 'instagram' : Instagram, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facedata' : facedata})
 
 def user_logout(request):
     logout(request)
