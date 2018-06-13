@@ -9,7 +9,6 @@ import requests
 from crastinus.apis import twitterapi
 import time
 import requests
-import json
 
 # Create your views here.
 # def index(request):
@@ -153,7 +152,7 @@ def home(request):
         Facebook = True
         faceuid = allproviders[usedproviders.index('facebook')].uid
         faceresponse = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
-        facedata = json.loads(faceresponse.text)
+        facedata = faceresponse.json()
 
     else:
         print('Facebook registration failed')
