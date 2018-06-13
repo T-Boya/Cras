@@ -154,7 +154,8 @@ def home(request):
         print('displaying...')
         Facebook = True
         faceuid = allproviders[usedproviders.index('facebook')].uid
-        facetoken = SocialToken.objects.filter(account__user=user, account__provider='facebook')
+        facetokenraw = SocialToken.objects.filter(account__user=user, account__provider='facebook')
+        facetoken = facetokenraw.SocialToken
         faceresponse = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
         facedata = faceresponse
 
