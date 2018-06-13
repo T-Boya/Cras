@@ -76,6 +76,8 @@ def home(request):
     providers = [a.capitalize() for a in usedproviders]
     print(providers)
     notifications = []
+    # DEFINING TWITTER VARIABLE
+    followernum = 0
 
     if 'Twitter' in providers:
         print('Twitter registered')
