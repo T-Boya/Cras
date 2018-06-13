@@ -23,6 +23,8 @@ You haven't posted anything!
 {% else %}
 {% if facedata != 0 %}
 {{ facedata }}
+{% else %}
+you've made a mistake
 {% endif %}
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
