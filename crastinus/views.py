@@ -10,6 +10,7 @@ from crastinus.apis import twitterapi
 import time
 import requests
 import json
+from allauth.socialaccount.models import SocialToken
 
 # Create your views here.
 # def index(request):
@@ -73,6 +74,7 @@ def home(request):
     # r = requests.get("https://graph.facebook.com/820882001277849/feed").json()
     # print (r)
     allproviders = user.socialaccount_set.all()
+    print(allproviders[0].__dict__)
     usedproviders = [a.provider for a in allproviders]
     providers = [a.capitalize() for a in usedproviders]
     print(providers)
@@ -152,7 +154,8 @@ def home(request):
         print('displaying...')
         Facebook = True
         faceuid = allproviders[usedproviders.index('facebook')].uid
-        faceresponse = requests.get("https://graph.facebook.com/{}/feed".format(faceuid)).json()
+        facetoken = SocialToken.objects.filter(account__user=user, account__provider='facebook')
+        faceresponse = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
         facedata = faceresponse
 
     else:
