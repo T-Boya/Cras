@@ -18,10 +18,10 @@ def home(request):
     ruid = request.user.id
     user = get_object_or_404(User, id=ruid)
     allproviders = user.socialaccount_set.all()
-    print(allproviders[0].__dict__)
+    # print(allproviders[0].__dict__)
     usedproviders = [a.provider for a in allproviders]
     providers = [a.capitalize() for a in usedproviders]
-    print(providers)
+    # print(providers)
     notifications = []
     # DEFINING TWITTER VARIABLE
     followernum = 0
