@@ -108,7 +108,7 @@ def home(request):
     # print(didi.friends_count) #TWITTER FOLLOWING COUNT
     # print(dudu.__dict__)
     # print (objjj.__dict__)
-    print(allproviders[0].uid)
+    # print(allproviders[0].uid)
     return render(request, 'home.html', {'twitter' : Twitter, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facedata' : facedata,})
 
 def user_logout(request):
