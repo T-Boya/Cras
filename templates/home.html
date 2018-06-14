@@ -4,19 +4,16 @@
 {% if user.is_authenticated %}
 <p>Welcome {{ user.username }} !!!</p>
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a><br>
-<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a><br>
+<a href="{% provider_login_url 'linkedin_oauth2' process='connect' %}">Connect a Linkedin account</a><br>
 <a href="{% url 'logout' %}">logout</a><br>
 {% if followernum == 1 %}
-1 follower
+1 follower<br>
 {% else %}
 {{ followernum }} followers<br>
 {% endif %}
 
-{% if facedata == 0 %}
-you've made a mistake
-{% else %}
-Facebook Data: {{ facedata }}
-{% endif %}
+Linkedin Data: {{ linkdata }}
+
 <br>
 {% if notifications %}
     {% for n in notifications %}
@@ -28,5 +25,5 @@ You haven't posted anything!
 {% else %}
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
-<a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
+<a href="{% provider_login_url 'linkedin_oauth2' process='connect' %}">Connect a linkedin account</a>
 {% endif %}

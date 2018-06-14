@@ -21,7 +21,10 @@ def home(request):
     # print(allproviders[0].__dict__)
     usedproviders = [a.provider for a in allproviders]
     providers = [a.capitalize() for a in usedproviders]
-    # print(providers)
+    if 'Linkedin_oauth2' in providers:
+        linkindex = providers.index('Linkedin_oauth2')
+        providers[linkindex] = 'Linkedin'
+    print(providers)
     notifications = []
     # DEFINING TWITTER VARIABLE
     followernum = 0
@@ -84,19 +87,26 @@ def home(request):
         Twitter = False
 
 
-    if 'Facebook' in providers:
-        print('Facebook registered')
+    if 'Linkedin' in providers:
+        print('Linkedin registered')
         print('displaying...')
-        Facebook = True
-        faceuid = allproviders[usedproviders.index('facebook')].uid
-        facetokenraw = SocialToken.objects.filter(account__user=user, account__provider='facebook')
-        facetoken = facetokenraw.first()
-        facedata = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
+        Linkedin = True
+        # faceuid = allproviders[usedproviders.index('facebook')].uid
+        # facetokenraw = SocialToken.objects.filter(account__user=user, account__provider='facebook')
+        # facetoken = facetokenraw.first()
+        # facedata = requests.get("https://graph.facebook.com/{}/feed?access_token={}".format(faceuid, facetoken)).json()
+        linktokenraw = SocialToken.objects.filter(account__user=user, account__provider='linkedin_oauth2').first().token
+        # linkdata = requests.get('https://api.linkedin.com/v2/activityFeeds?q=networkShares&count=2', headers={'Authorization':linktokenraw}).json()
+        # linkdata = requests.get('https://api.linkedin.com/v2/activityFeeds?q=networkShares&count=2', auth=linktokenraw).json()
+        linkdata = requests.get('https://api.linkedin.com/v1/people/~?format=json', headers={'Authorization':'Bearer ' + linktokenraw}).json()
+
+
+
 
     else:
-        print('Facebook registration failed')
+        print('Linkedin registration failed')
         print('cannot be displayed')
-        Facebook = False
+        Linkedin = False
         # FACEBOOK LOGIC
 
     notifications.sort(key=lambda x: x.rage, reverse=True)
@@ -109,7 +119,7 @@ def home(request):
     # print(dudu.__dict__)
     # print (objjj.__dict__)
     # print(allproviders[0].uid)
-    return render(request, 'home.html', {'twitter' : Twitter, 'facebook' : Facebook, 'followernum' : followernum, 'notifications' : notifications, 'facedata' : facedata,})
+    return render(request, 'home.html', {'twitter' : Twitter, 'followernum' : followernum, 'notifications' : notifications, 'linkdata' : linkdata})
 
 def user_logout(request):
     logout(request)
