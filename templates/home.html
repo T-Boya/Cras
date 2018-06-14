@@ -5,7 +5,6 @@
 <p>Welcome {{ user.username }} !!!</p>
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a><br>
 <a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a><br>
-<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a><br>
 <a href="{% url 'logout' %}">logout</a><br>
 {% if followernum == 1 %}
 1 follower
@@ -30,5 +29,4 @@ You haven't posted anything!
 <!-- <a href="{% provider_login_url 'twitter' %}">Twitter Login</a> -->
 <a href="{% provider_login_url 'twitter' process='connect' %}">Connect a Twitter account</a>
 <a href="{% provider_login_url 'facebook' process='connect' %}">Connect a Facebook account</a>
-<a href="{% provider_login_url 'instagram' process='connect' %}">Connect an Instagram account</a>
 {% endif %}
